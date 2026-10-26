@@ -83,7 +83,7 @@ stdenv.mkDerivation {
     export PYTHONDONTWRITEBYTECODE=1
     export PYTHONPATH="$PWD/../python"
     mkdir -p "$HOME"
-    xvfb-run -a sh -c 'wineboot --init && python3 -m unittest discover -s ../tests -p "test_*.py" -v'
+    xvfb-run -a sh -c 'wineboot --init && wineserver --wait && python3 -m unittest discover -s ../tests -p "test_*.py" -v'
     runHook postCheck
   '';
   postInstall = ''
