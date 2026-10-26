@@ -1,0 +1,13 @@
+/build/
+/result
+/result-*
+__pycache__/
+*.py[cod]
+*.xpl
+*.exe
+*.dll
+*.pcap
+*.jsonl
+*.jsonl.*
+/.direnv/
+/vendor/

@@ -1,0 +1,17 @@
+[Unit]
+Description=BeyondATC native X-Plane discovery and push-to-talk bridge
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+ExecCondition=@out@/bin/beyondatc-native check
+ExecStart=@out@/bin/beyondatc-native supervise
+Restart=on-failure
+RestartSec=15
+# Do not group-kill the Wine server shared with the interactive application.
+KillMode=process
+TimeoutStopSec=15
+UMask=0077
+
+[Install]
+WantedBy=default.target
